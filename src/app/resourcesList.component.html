@@ -1,0 +1,45 @@
+<div class="content">
+  <h1 class="med-center-font"> Choose {{ resourcesManager.currentResource.displayName }}</h1>
+  <div class="search-wrapper container">
+    <div class="row">
+      <div class="col-10" >
+        <input type="text" class="form-control form-control-sm" [(ngModel)]="searchText" (input)="filter()" placeholder="Search {{resourcesManager.currentResource.displayName}}">
+      </div>
+      <div class="col-2">
+        <button class="btn btn-warning btn-sm" [disabled]="resourcesManager.currentResource.itemList
+          && resourcesManager.currentResource.itemList.length"
+          (click)="search()">Search</button>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-12" style="text-align: left !important;">
+        <small class="form-text text-muted" *ngIf="searchResultMessage.length">{{searchResultMessage}}</small>
+      </div>
+    </div>
+  </div>
+
+  <div style="margin-top: 10px; margin-left:40px;" *ngIf="statusMessage.length">
+    <div *ngIf="!serviceError" class="spinner-border spinner-border-sm text-warning" role="status"></div>
+    <small>  {{ statusMessage }}</small>
+  </div>
+
+  <div class="resource-list-container container-scroll" *ngIf="resourcesManager && resourcesManager.currentResource">
+    <div class="small-font resource-list-item" *ngFor="let resource of resourcesManager.currentResource.itemList; let i = index">
+      <input type="checkbox" #check [checked]="resource.isChecked" (change)="toogleCheck(check.checked, i)"> {{ resource.name }}
+    </div>
+    <div class="nav-btn-left">
+      <button class="btn btn-sm btn-link nav-btn" [disabled]="!loadCompleted" *ngIf="hasMore()" (click)="showMore()">Load more {{ resourcesManager.currentResource.displayName }}</button>
+    </div>
+  </div>
+
+  <div class="nav-btn-wrapper">
+    <div class="nav-btn-left">
+      <button class="btn btn-link nav-btn" *ngIf="hasPreviouse()" (click)="showPreviousList()">Back to {{resourcesManager.getPreviouseName()}}</button>
+    </div>
+    <div class="nav-btn-right">
+      <button class="btn btn-link nav-btn" *ngIf="hasNext()" (click)="showNextList()">Next to {{resourcesManager.getNextName()}}</button>
+      <button class="btn btn-link nav-btn" [disabled]="missingItems()" *ngIf="!hasNext()" (click)="navigateToPlotGenerator()">Generate Story</button>
+    </div>
+  </div>
+</div>
+

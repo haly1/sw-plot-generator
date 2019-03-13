@@ -1,0 +1,13 @@
+<div class="content">
+  <h1 class="med-center-font">Choose resources to include in your story..</h1>
+  <div class="resource-list-container">
+    <div class="small-font resource-list-item" *ngFor="let resource of availableResources">
+      <input type="checkbox" [(ngModel)]="resource.include">  {{resource.displayName}}
+    </div>
+  </div>
+  <div class="nav-btn-wrapper">
+    <div class="nav-btn-right">
+      <button class="btn btn-link nav-btn" [disabled]="!validInput()" (click)="navigateToResourcesList()">Next</button>
+    </div>
+  </div>
+</div>

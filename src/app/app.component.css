@@ -1,0 +1,10 @@
+.wrapper{
+  background-color: rgb(0, 0, 0)
+}
+
+.subtitle
+{
+  text-align: right;
+  font-weight: bold;
+  color: rgb(235, 235, 235);
+}

@@ -1,1 +1,108 @@
 /* You can add global styles to this file, and also import other style files */
+*{
+  margin: 0;
+  padding: 0;
+  background-color: black;
+}
+
+.content
+{
+  margin-top: 40px;
+  color: rgb(147, 142, 142);
+}
+
+.nav-btn:enabled
+{
+  color: yellow;
+}
+
+.nav-btn:hover
+{
+  color: yellow !important;
+}
+
+.med-center-font{
+  font-size: 1.5rem;
+  font-weight: 300;
+  line-height: 1.2;
+  text-align: center;
+}
+
+.small-font{
+  font-size: 1.2rem;
+  font-weight: 200;
+  line-height: 1.2;
+}
+
+.resource-list-container
+{
+  margin-top: 20px;
+  margin-left: 40px;
+}
+
+.container-scroll
+{
+  height: 280px;
+  overflow: auto;
+}
+
+
+.resource-list-item
+{
+  margin-top: 5px;
+}
+
+.resource-list-item input
+{
+  width: 15px;
+  height: 15px;
+}
+
+.list-container
+{
+  height: 200px;
+  overflow: auto;
+}
+.nav-btn-wrapper
+{
+  margin-top: 20px;
+}
+
+.nav-btn-right
+{
+  text-align: right !important;
+}
+
+.nav-btn-left
+{
+  float: left;
+}
+
+.search-wrapper
+{
+  text-align: center;
+  margin-top: 20px;
+  margin-left: 20px !important;
+}
+
+/*custom scrollbar  */
+/* width */
+::-webkit-scrollbar {
+  width: 5px;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+  /* background: #f1f1f1; */
+  background:black;
+}
+
+/* Handle */
+::-webkit-scrollbar-thumb {
+  background: rgb(54, 54, 54)
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+  background: #555;
+}
